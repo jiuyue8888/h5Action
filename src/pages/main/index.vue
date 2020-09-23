@@ -110,6 +110,8 @@
     import 'swiper/swiper.less';
     import city from '../../city';
     import Picker from '../../picker.min';
+    import {carSave} from '@/server/index.js';
+
     export default{
         name: "done",
 
@@ -156,8 +158,8 @@
                 loop: true,
                 on: {
                     slideChangeTransitionEnd: function(){
-                        //console.log(this.activeIndex);//切换结束时，告诉我现在是第几个slide
-                        _this.piccode = this.activeIndex+1
+                        //console.log(this);//切换结束时，告诉我现在是第几个slide
+                        _this.piccode = this.realIndex+1
                     },
                 },
                 autoplay: false
@@ -293,6 +295,19 @@
             submitHandle(){
                 this.sp.slideTo(4)
                 this.part = 4;
+                carSave({
+                    lovecar: this.lovecar,//意向车型
+                    province: this.province,//省
+                    city: this.city,//市
+                    mobile: this.mobile,//手机号
+                    sex: this.sex,//性别
+                    age: this.age,//年龄
+                    username: this.username,//姓名
+                    words: this.words,//信息
+                    piccode: this.piccode,//图片索引
+                }).then(res=>{
+
+                })
             }
         },
 
