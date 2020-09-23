@@ -293,8 +293,7 @@
 
             },
             submitHandle(){
-                this.sp.slideTo(4)
-                this.part = 4;
+
                 carSave({
                     lovecar: this.lovecar,//意向车型
                     province: this.province,//省
@@ -306,7 +305,10 @@
                     words: this.words,//信息
                     piccode: this.piccode,//图片索引
                 }).then(res=>{
-
+                    if(res.code==200){
+                        this.sp.slideTo(4)
+                        this.part = 4;
+                    }
                 })
             }
         },

@@ -30,14 +30,14 @@
 <script>
 
     import {login} from '@/server/index.js';
-
+    import cookies from 'js-cookie'
     export default{
         name: "done",
 
         data(){
             return {
                 name:'admin',
-                password:'123'
+                password:'123456'
             }
 
         },
@@ -46,14 +46,29 @@
         },
         methods: {
             loginBtn(){
+                if(this.password==''){
+                    this.$message('请输入密码');
+                    return;
+                }
+                if(this.name==''){
+                    this.$message('请输入用户名');
+                    return;
+                }
                 login({
                     password:this.password,
-                    usernmae:this.name
+                    username:this.name
                 }).then(res=>{
+                    if(res.code==200){
+                        this.$router.push('/list');
+                        var inFifteenMinutes = new Date(new Date().getTime() + 10 * 60 * 1000);
+                        cookies.set('login','1',{expires:inFifteenMinutes})
+                    }else{
+                        this.$message(res.message)
+                    }
 
                 })
 
-                this.$router.push('/list');
+
             }
         },
 
