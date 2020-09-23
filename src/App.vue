@@ -28,6 +28,9 @@
         margin: 0;
     }
 
+    i{
+        font-size: 30px;
+    }
     img {
         vertical-align: top;
         max-width: 100%;

@@ -131,17 +131,6 @@
                 words: "",//信息
                 piccode: "1",//图片索引
 
-                /*
-                 createId: "",
-                 createTime: "",
-                 createUser: "string",
-                 id: 0,
-                 isDeleted: true,
-                 sharepic: "string",
-                 updateId: "string",
-                 updateTime: "2020-09-23T07:42:36.417Z",
-                 updateUser: "string",
-                 */
             }
 
         },
@@ -293,6 +282,31 @@
 
             },
             submitHandle(){
+                if(this.username==''){
+                    this.$message('请填写姓名');
+                    return;
+                }
+                if(this.age==''){
+                    this.$message('请填写年龄');
+                    return;
+                }
+                if(this.mobile==''){
+                    this.$message('请填写手机号');
+                    return;
+                }
+                if(!(/^1(3|4|5|6|7|8|9)\d{9}$/.test(this.mobile))){
+                    this.$message("请填写正确的手机号");
+                    return false;
+                }
+                if(this.province=='省'){
+                    this.$message('请选择地区');
+                    return;
+                }
+                if(this.words==''){
+                    this.$message('请输入你的话语');
+                    return;
+                }
+
 
                 carSave({
                     lovecar: this.lovecar,//意向车型
@@ -308,6 +322,8 @@
                     if(res.code==200){
                         this.sp.slideTo(4)
                         this.part = 4;
+                    }else{
+                        this.$message(res.message)
                     }
                 })
             }
