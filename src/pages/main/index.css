@@ -1,0 +1,24 @@
+.done {
+  position: relative;
+  width: 486px;
+  margin: 0 auto;
+  text-align: center;
+  max-width: 90%;
+}
+.done img {
+  max-width: 100%;
+}
+.done p {
+  font-size: 25px;
+  color: #313131;
+  line-height: 40px;
+  margin-bottom: 10px;
+}
+.done p span {
+  color: #5A7786;
+}
+.done p em {
+  font-style: normal;
+  color: #5A7786;
+  text-decoration: underline;
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <!-- 默认使用最新浏览器 -->
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <!-- 不被网页(加速)转码 -->
+  <meta name="robots" content="index,follow">
+  <!-- 搜索引擎抓取 -->
+  <meta name="renderer" content="webkit">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <!-- 删除苹果默认的工具栏和菜单栏 -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <!-- 设置苹果工具栏颜色 -->
+  <meta name="apple-mobile-web-app-title" content="">
+  <!-- 添加到主屏后的标题（iOS 6 新增） -->
+  <meta name="apple-touch-fullscreen" content="yes">
+  <meta name="screen-orientation" content="portrait">
+  <!-- 强制竖屏 -->
+  <meta name="full-screen" content="yes">
+  <!-- 强制全屏 -->
+  <meta name="browsermode" content="application">
+  <!-- 应用模式 -->
+  <meta name="x5-orientation" content="portrait">
+  <!-- QQ强制竖屏 -->
+  <meta name="x5-fullscreen" content="true">
+  <!-- QQ强制全屏 -->
+  <meta name="x5-page-mode" content="app">
+  <!-- QQ应用模式 -->
+  <meta name="format-detection" content="telephone=no, address=no, email=no">
+
+  <title>h5活动</title>
+</head>
+
+<body>
+<script type="text/javascript">
+  (function (doc, win) {
+    var Dpr = 1,
+            uAgent = window.navigator.userAgent;
+    var isIOS = uAgent.match(/iphone/i);
+    var isYIXIN = uAgent.match(/yixin/i);
+    var is2345 = uAgent.match(/Mb2345/i);
+    var ishaosou = uAgent.match(/mso_app/i);
+    var isSogou = uAgent.match(/sogoumobilebrowser/ig);
+    var isLiebao = uAgent.match(/liebaofast/i);
+    var isGnbr = uAgent.match(/GNBR/i);
+
+    function resizeRoot() {
+      var wWidth = (screen.width > 0) ? (window.innerWidth >= screen.width || window.innerWidth == 0) ? screen.width : window.innerWidth : window.innerWidth,
+              wDpr, wFsize;
+      var wHeight = (screen.height > 0) ? (window.innerHeight >= screen.height || window.innerHeight == 0) ? screen.height : window.innerHeight : window.innerHeight;
+      if (window.devicePixelRatio) {
+        wDpr = window.devicePixelRatio;
+      } else {
+        wDpr = isIOS ? wWidth > 818 ? 3 : wWidth > 480 ? 2 : 1 : 1;
+      }
+      if (isIOS) {
+        wWidth = screen.width;
+        wHeight = screen.height;
+      }
+      // if(window.orientation==90||window.orientation==-90){
+      //     wWidth = wHeight;
+      // }else if((window.orientation==180||window.orientation==0)){
+      // }
+      if (wWidth > wHeight) {
+        wWidth = wHeight;
+      }
+      wFsize = wWidth > 540 ? 72 : wWidth / 7.5;
+      wFsize = wFsize > 32 ? wFsize : 32;
+      window.screenWidth_ = wWidth;
+      if (isYIXIN || is2345 || ishaosou || isSogou || isLiebao || isGnbr) { //YIXIN 和 2345 这里有个刚调用系统浏览器时候的bug，需要一点延迟来获取
+        setTimeout(function () {
+          wWidth = (screen.width > 0) ? (window.innerWidth >= screen.width || window.innerWidth == 0) ? screen.width : window.innerWidth : window.innerWidth;
+          wHeight = (screen.height > 0) ? (window.innerHeight >= screen.height || window.innerHeight == 0) ? screen.height : window.innerHeight : window.innerHeight;
+          wFsize = wWidth > 540 ? 72 : wWidth / 7.5;
+          wFsize = wFsize > 32 ? wFsize : 32;
+          document.getElementsByTagName('html')[0].style.fontSize = wFsize + 'px';
+        }, 500);
+      } else {
+        document.getElementsByTagName('html')[0].style.fontSize = wFsize + 'px';
+      }
+      // alert("fz="+wFsize+";dpr="+window.devicePixelRatio+";UA="+uAgent+";width="+wWidth+";sw="+screen.width+";wiw="+window.innerWidth+";wsw="+window.screen.width+window.screen.availWidth);
+    }
+
+    if (!doc.documentElement.addEventListener) return;
+    doc.addEventListener('DOMContentLoaded', resizeRoot, false);
+    resizeRoot();
+  })(document, window);
+</script>
+
+<div id="app"></div>
+
+</body>
+
+</html>
