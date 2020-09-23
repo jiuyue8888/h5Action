@@ -1,0 +1,77 @@
+.admin{
+  position: relative;
+  width: 100%;
+  height: 100vh;
+
+
+  .login{
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    padding-top: 300px;
+    h3{
+      text-align: center;
+      margin: 20px 0;
+      color: #1b6d85;
+    }
+    button{
+      width: 100%;
+      height: 50px;
+      font-size: 20px;
+
+    }
+  }
+  .list{
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding-top: 80px;
+    .table{
+      position: relative;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 30px;
+      background: #fff;
+    }
+    button{
+
+      margin-bottom: 20px;
+    }
+  }
+  &::before{
+    content:'';
+    position:absolute;
+    top:-10%;
+    left:-10%;
+    width: 120%;
+    height: 120%;
+    background: url("../../assets/p3.jpg") no-repeat 50% 50% #000;
+    filter:blur(50px);
+    z-index:-1;
+    background-size:cover;
+  }
+  .box-card{
+    width: 500px;
+    padding-bottom: 40px;
+    margin: 0 auto;
+  }
+
+  .suffix{
+    position: relative;
+    width: 100%;
+    display: flex;
+    font-size: 16px;
+    align-items: center;
+    margin-bottom: 20px;
+    justify-content: space-between;
+    i{
+      font-size: 20px;
+    }
+
+    span{
+      width: 80px;
+
+    }
+  }
+}

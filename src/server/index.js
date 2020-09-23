@@ -18,3 +18,4 @@ const getForm=(api,data)=>{
 };
 
 export const carSave = (data)=> postForm('/api/car/save',data);
+export const login = (data)=> postForm('/api/car/login',data);
