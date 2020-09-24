@@ -110,7 +110,7 @@
                 <div class="swiper-slide"><img src="../../assets/2.jpg"></div>
                 <div class="swiper-slide"><img src="../../assets/3.jpg"></div>
                 <div class="swiper-slide"><img src="../../assets/4.jpg"></div>
-                <div class="swiper-slide"><img src="../../assets/5.jpg"></div>
+
             </div>
         </div>
 
@@ -132,9 +132,9 @@
             return {
                 sp: null,
                 imgSwiper: null,
-                cars: ['观致5S', '观致7', 'MILESTONE'],
+                cars: ['观致7', '观致5S'],
                 part: 0,
-                lovecar: '观致5S',//意向车型
+                lovecar: '观致7',//意向车型
                 province: "省",//省
                 city: "市",//市
                 mobile: "",//手机号
