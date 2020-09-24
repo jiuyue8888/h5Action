@@ -36,8 +36,8 @@
 
         data(){
             return {
-                name:'admin',
-                password:'123456'
+                name:'',
+                password:''
             }
 
         },

@@ -15,12 +15,15 @@
 <style>
     @import "animate.min.css";
     #app {
+        width: 100%;
         height: 100%;
+        overflow: hidden;
         font-size: 0.28rem;
     }
 
-    body{
+    body,.main{
         width: 100%;
+        height: 100vh;
         overflow: hidden;
     }
     * {

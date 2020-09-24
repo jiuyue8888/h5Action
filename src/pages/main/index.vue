@@ -34,22 +34,25 @@
                         </div>
                         <div id="picker_city">
                             <span>居住城市</span>
-                            <div class="select province">
-                                <span>{{province}}</span>
+                            <div class="mess">
+                                <div class="select province">
+                                    <span>{{province}}</span>
+                                </div>
+                                <div class="select city">
+                                    <span>{{city}}</span>
+                                </div>
                             </div>
-                            <div class="select city">
-                                <span>{{city}}</span>
-                            </div>
+
                         </div>
                         <div class="lable5">
                             <span>意向车型</span>
-                            <div class="select">
+                            <div class="select sel">
+
+
                                 <select v-model="lovecar">
-                                    <option
-                                            v-for="(item,id) in cars"
+                                    <option v-for="(item,id) in cars"
                                             :key="id"
-                                            :label="item"
-                                            :value="item">
+                                            :value="item">{{item}}
                                     </option>
                                 </select>
                             </div>
@@ -62,7 +65,7 @@
                     <img src="../../assets/p3.jpg">
                     <div class="info1">
                         <h4>选择照片，并留下您的话语</h4>
-                        <el-input v-model="words" type="textarea" placeholder="我的话语..."></el-input>
+                        <el-input v-model="words" type="textarea" maxlength="6" placeholder="最长6个字符"></el-input>
                         <div class="imgParent"></div>
                         <div class="btn" @click="submitHandle">确认提交</div>
                         <div class="btn2 prev" @click="goPage(2)">上一页</div>
@@ -73,12 +76,21 @@
                     <img src="../../assets/p3.jpg">
                     <div class="info1">
                         <h4>请查收您的专属"新名片",与更多人分享吧!</h4>
-                        <div class="share">
-                            <img src="../../assets/p3.jpg">
+                        <div class="share" v-if="shareImg==''">
+                            <img src="../../assets/loading.gif" style="width: 0.6rem;
+    height: 0.6rem;
+    display: block;
+    margin: 2rem auto;">
+                        </div>
+                        <div class="share" v-else>
+                            <img :src="shareImg" style="width: 100%;
+    height: 100%;
+    display: block;
+    margin: 0 auto;">
                         </div>
                         <p>
                             <span @click="goPage(3)">上一页</span>
-                            <span>分&nbsp;&nbsp;享</span>
+                            <span>长按保存您的专属名片</span>
                         </p>
                     </div>
                     <div class="btn1" @click="goPage(5)"><img src="../../assets/up.png"></div>
@@ -91,7 +103,8 @@
         </div>
 
 
-        <div :class="part==3?'img swiper-container animated fadeIn':'img swiper-container'" :style="part==3?'left:0':'left:200%'">
+        <div :class="part==3?'img swiper-container animated fadeIn':'img swiper-container'"
+             :style="part==3?'zIndex:3':'zIndex:-1'">
             <div class="swiper-wrapper">
                 <div class="swiper-slide"><img src="../../assets/1.jpg"></div>
                 <div class="swiper-slide"><img src="../../assets/2.jpg"></div>
@@ -125,11 +138,12 @@
                 province: "省",//省
                 city: "市",//市
                 mobile: "",//手机号
-                sex: 0,//性别
+                sex: 1,//性别
                 age: '',//年龄
                 username: "",//姓名
                 words: "",//信息
                 piccode: "1",//图片索引
+                shareImg:""
 
             }
 
@@ -306,8 +320,9 @@
                     this.$message('请输入你的话语');
                     return;
                 }
-
-
+                const _this = this;
+                this.sp.slideTo(4);
+                this.part = 4;
                 carSave({
                     lovecar: this.lovecar,//意向车型
                     province: this.province,//省
@@ -320,10 +335,9 @@
                     piccode: this.piccode,//图片索引
                 }).then(res=>{
                     if(res.code==200){
-                        this.sp.slideTo(4)
-                        this.part = 4;
+                        _this.shareImg=res.data
                     }else{
-                        this.$message(res.message)
+                        //this.$message(res.message)
                     }
                 })
             }

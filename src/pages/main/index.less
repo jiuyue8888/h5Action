@@ -9,14 +9,14 @@
   -webkit-box-align:center;
 }
 .img{
-  position: absolute;
+  position: absolute!important;
   left: 0;
   top:50%;
 
   margin-top: -110px;
   width: 100%;
   box-sizing: border-box;
-  padding: 0 120px;
+  padding: 0 120px!important;
   height: 364px;
   animation-delay: 0.2s;
   .swiper-slide{
@@ -92,7 +92,8 @@
       display: flex;
       justify-content: space-between;
       span{
-        width: 120px;
+        display: inline-block;
+        padding: 2px 5px;
         height: 30px;
         line-height: 30px;
         text-align: center;
@@ -186,12 +187,18 @@
         position: relative;
 
       }
+      .mess{
+        width: 360px;
+        display: flex;
+        justify-content: space-between;
+      }
       .select{
         position: relative;
         margin-right: 10px;
+        width: 48%;
         span{
           display: block;
-          width: 175px;
+          width: 100%;
           margin-right: 0;
           text-align: left;
           box-sizing: border-box;
@@ -211,6 +218,9 @@
           border-right: 10px transparent solid;
           border-left: 10px transparent solid;
         }
+      }
+      .sel{
+        width: 360px;
       }
     }
     .lable5{
