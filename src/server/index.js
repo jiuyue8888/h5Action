@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const postForm=(api,data)=>{
     return axios({
-        url: `${url}${api}`,
+        url: `${api}`,
         method:'post',
         withCredentials: true,
         data:data
