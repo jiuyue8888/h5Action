@@ -3,15 +3,15 @@
         <div class="page swiper-container">
             <div class="swiper-wrapper">
                 <div class="swiper-slide swiper-no-swiping">
-                    <img src="../../assets/p1.jpg">
+                    <img src="http://106.13.230.68:8888/ziitoo/M00/00/05/ag3mRF9x8D2AT2E-AAFlLT0lmAU118.jpg">
                     <div class="btn1" @click="goPage(1)"><img src="../../assets/up.png"></div>
                 </div>
                 <div class="swiper-slide swiper-no-swiping">
-                    <img src="../../assets/p2.jpg">
+                    <img src="http://106.13.230.68:8888/ziitoo/M00/00/05/ag3mRF9x8MuAFAVtAAFawdSOoJE961.jpg">
                     <div class="btn2" @click="goPage(2)">点击进入</div>
                 </div>
                 <div class="swiper-slide swiper-no-swiping">
-                    <img src="../../assets/p3.jpg">
+                    <img src="http://106.13.230.68:8888/ziitoo/M00/00/05/ag3mRF9x8PyAMCTWAADKSEZC9hA709.jpg">
                     <div class="info">
                         <h3>基本信息</h3>
                         <div>
@@ -62,7 +62,7 @@
                     <div class="btn2" @click="goPage(3)">下一步</div>
                 </div>
                 <div class="swiper-slide swiper-no-swiping">
-                    <img src="../../assets/p3.jpg">
+                    <img src="http://106.13.230.68:8888/ziitoo/M00/00/05/ag3mRF9x8PyAMCTWAADKSEZC9hA709.jpg">
                     <div class="info1">
                         <h4>选择照片，并留下您的话语</h4>
                         <el-input v-model="words" type="textarea" maxlength="6" placeholder="最长6个字符"></el-input>
@@ -73,7 +73,7 @@
 
                 </div>
                 <div class="swiper-slide swiper-no-swiping">
-                    <img src="../../assets/p3.jpg">
+                    <img src="http://106.13.230.68:8888/ziitoo/M00/00/05/ag3mRF9x8PyAMCTWAADKSEZC9hA709.jpg">
                     <div class="info1">
                         <h4>请查收您的专属"新名片",与更多人分享吧!</h4>
                         <div class="share" v-if="shareImg==''">
@@ -96,7 +96,7 @@
                     <div class="btn1" @click="goPage(5)"><img src="../../assets/up.png"></div>
                 </div>
                 <div class="swiper-slide swiper-no-swiping">
-                    <img src="../../assets/p5.jpg">
+                    <img src="http://106.13.230.68:8888/ziitoo/M00/00/05/ag3mRF9x8TyANdJvAAGJLD27pAQ974.jpg">
                 </div>
             </div>
 
@@ -106,10 +106,10 @@
         <div :class="part==3?'img swiper-container animated fadeIn':'img swiper-container'"
              :style="part==3?'zIndex:3':'zIndex:-1'">
             <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="../../assets/1.jpg"></div>
-                <div class="swiper-slide"><img src="../../assets/2.jpg"></div>
-                <div class="swiper-slide"><img src="../../assets/3.jpg"></div>
-                <div class="swiper-slide"><img src="../../assets/4.jpg"></div>
+                <div class="swiper-slide"><img src="http://106.13.230.68:8888/ziitoo/M00/00/05/ag3mRF9x8aCAUtgxAACI5TjQ2tM931.jpg"></div>
+                <div class="swiper-slide"><img src="http://106.13.230.68:8888/ziitoo/M00/00/06/ag3mRF9x8c6AMUwFAACG8gqMt2Y151.jpg"></div>
+                <div class="swiper-slide"><img src="http://106.13.230.68:8888/ziitoo/M00/00/06/ag3mRF9x8e6AIQ5iAAKAeGwCg44972.jpg"></div>
+                <div class="swiper-slide"><img src="http://106.13.230.68:8888/ziitoo/M00/00/06/ag3mRF9x8hyAYe85AAIeb46a67w403.jpg"></div>
 
             </div>
         </div>
